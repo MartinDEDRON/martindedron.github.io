@@ -9,6 +9,11 @@ const images = Array.from({ length: totalImages }, (_, i) => {
   return `${imagePrefix}${index}${imageExtension}`;
 });
 
+const noteTextArray = [
+  "Leave behind the samsara of haste, the obviousness of notifications.\nFind peace in the disorganized, useless but above all, human, perceptions of your surroundings.",
+  "I intend through my work to make you wander.\nThus, photographs are displayed in places they 'shouldn't be' : seek, and you shall find."
+]
+
 let currentImage = 0;
 
 function nextImage() {
@@ -29,14 +34,9 @@ function nextImage() {
 // Clic droit → afficher un texte aléatoire dans une popup
 document.addEventListener("contextmenu", function (e) {
   e.preventDefault();
-  fetch("notes/notes.txt")
-    .then(response => response.text())
-    .then(data => {
-      const texts = data.split(/\n\s*---\s*\n/);
-      const randomText = texts[Math.floor(Math.random() * texts.length)];
-      document.getElementById("popup-text").innerText = randomText.trim();
-      document.getElementById("popup").style.display = "block";
-    });
+  const randomText = noteTextArray[Math.floor(Math.random() * noteTextArray.length)];
+  document.getElementById("popup-text").innerText = randomText.trim();
+  document.getElementById("popup").style.display = "block";
 });
 
 // Fermer la popup si on clique n’importe où
