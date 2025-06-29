@@ -1,13 +1,21 @@
 // Configuration dynamique des images
-const totalImages = 604; // ← change ce nombre selon ton nombre exact d’images
 const imagePrefix = "images/Martin_DEDRON_";
 const imageExtension = ".jpg";
+
+const totalImages = 604;
 
 // Génère la liste des chemins d’images
 const images = Array.from({ length: totalImages }, (_, i) => {
   const index = String(i + 1).padStart(3, '0'); // ex: "001"
   return `${imagePrefix}${index}${imageExtension}`;
 });
+
+const realTotalImages = images.length;
+
+
+// Sauvegarde en mémoire le chemin des images déjà passées
+const passedImages = [];
+
 
 const noteTextArray = [
   "Leave behind the samsara of haste, the obviousness of notifications.\nFind peace in the disorganized, useless but above all, human, perceptions of your surroundings.",
@@ -17,11 +25,18 @@ const noteTextArray = [
 let currentImage = 0;
 
 function nextImage() {
+
+  // Reset le tableau des images déjà passées si elles sont toutes passées
+  if (passedImages.length === realTotalImages) {
+    passedImages = [];
+  }
+
   let next;
   do {
     next = Math.floor(Math.random() * images.length);
   } while (next === currentImage);
   currentImage = next;
+  passedImages.push(images[currentImage]);
 
   const img = document.getElementById('main-image');
   img.style.opacity = 0;
