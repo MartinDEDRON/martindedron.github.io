@@ -1,0 +1,146 @@
+@font-face {
+  font-family: 'EBGaramond';
+  src: url('../fonts/EBGaramond-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'EBGaramond';
+  src: url('../fonts/EBGaramond-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'EBGaramond';
+  src: url('../fonts/EBGaramond-ExtraBoldItalic.woff2') format('woff2');
+  font-weight: 800;
+  font-style: italic;
+}
+
+body {
+  margin: 0;
+  background-color: #bfbfbf;
+  font-family: 'EBGaramond', serif;
+  overflow: hidden;
+}
+
+.top-bar {
+  height: 75px;
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  overflow: hidden;
+}
+.bottom-bar {
+	 height: 40px;
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  overflow: hidden;
+}
+.top-bar {
+  position: relative;
+}
+
+.bottom-bar {
+  position: relative;
+  bottom: 00px;
+}
+
+.top-bar {
+  justify-content: flex-start;
+}
+
+.logo {
+  height: 68px;
+  margin-right: 20px;
+}
+.main-frame {
+font-size: 10vw;
+  font-weight: 800;
+  font-family: 'EBGaramond', serif;
+}
+.header-logo {
+  font-size: 4vmin;
+  font-weight: 800;
+  font-style: italic;
+  font-family: 'EBGaramond', serif;
+}
+.header-text {
+  font-size: 4vmin;
+  font-weight: 800;
+  font-style: normal;
+  font-family: 'EBGaramond', serif;
+}
+
+
+.bottom-bar .scrolling-text {
+  margin-top: auto;
+  margin-bottom: auto;
+  white-space: nowrap;
+  position: absolute;
+  left: 100%;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 15px;
+  font-family: 'EBGaramond', serif;
+  align-content: center;
+  animation: scroll-left 40s linear infinite;
+  @keyframes scrollLeft {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+@keyframes scroll-left {
+  0% { left: 100%; }
+  100% { left: -40%; }
+}
+
+.main-frame {
+  height: calc(100vh - 112px);
+  background-color: #bfbfbf;
+  padding: 10px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  
+}
+
+.main-frame img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.popup {
+  position: fixed;
+  top: 33%;
+  left: 33%;
+  background-color: #e15a5a;
+  color: black;
+  font-size: 18px;
+  padding: 20px;
+  font-family: 'EBGaramond', serif;
+  display: none;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+a {
+  color: white;
+  font-style: italic;
+  font-weight: 700;
+  text-decoration: none;
+}
