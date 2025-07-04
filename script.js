@@ -2,7 +2,7 @@
 const imagePrefix = "images/Martin_DEDRON_";
 const imageExtension = ".jpg";
 
-// Voilà les images
+// Nombre total d'images
 const totalImages = 610;
 
 // Génère la liste des chemins d’images
